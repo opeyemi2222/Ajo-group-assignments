@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AJO Savings — Create a new account to start managing your savings group.">
+    <title>AJO Savings — Create Account</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --primary:      #0b2d89;
+            --primary-dark: #08236b;
+            --primary-light:#eaf2ff;
+            --bg:           #f5f7fb;
+            --border:       #dce3ed;
+            --text:         #172033;
+            --muted:        #6b7280;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg);
+            font-family: Arial, sans-serif;
+            color: var(--text);
+        }
+
+        /* ── LAYOUT ── */
+        .register-wrapper { display: flex; min-height: 100vh; }
+
+        /* ── BRAND PANEL ── */
+        .brand-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 50px;
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .brand-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 50px; }
+
+        .brand-logo-icon {
+            width: 52px; height: 52px;
+            background: rgba(255,255,255,.15);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
+        }
+
+        .brand-logo h1  { margin: 0; font-size: 24px; font-weight: 700; }
+        .brand-logo p   { margin: 2px 0 0; font-size: 12px; opacity: .75; }
+
+        .brand-tagline h2 { font-size: 32px; font-weight: 700; line-height: 1.3; margin-bottom: 15px; }
+        .brand-tagline p  { font-size: 15px; opacity: .8; line-height: 1.7; max-width: 420px; }
+
+        .brand-steps { margin-top: 45px; display: flex; flex-direction: column; gap: 22px; }
+
+        .brand-step { display: flex; align-items: flex-start; gap: 16px; }
+
+        .step-number {
+            width: 34px; height: 34px;
+            background: rgba(255,255,255,.15);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; font-weight: 700; flex-shrink: 0;
+        }
+
+        .brand-step div p     { margin: 0; font-size: 14px; opacity: .9; font-weight: 600; }
+        .brand-step div small { font-size: 12px; opacity: .65; }
+
+        /* ── FORM PANEL ── */
+        .form-panel {
+            width: 500px; flex-shrink: 0;
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 50px;
+            background: #fff;
+            overflow-y: auto;
+        }
+
+        .form-panel-header { margin-bottom: 28px; }
+        .form-panel-header h2 { margin: 0 0 6px; font-size: 26px; font-weight: 700; }
+        .form-panel-header p  { margin: 0; color: var(--muted); font-size: 14px; }
+
+        /* ── FORM CONTROLS ── */
+        .register-form .form-label {
+            font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px;
+        }
+
+        .register-form .form-control {
+            height: 46px; padding: 0 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px; font-size: 14px;
+            transition: .2s ease;
+        }
+
+        .register-form .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11,45,137,.1);
+        }
+
+        /* password toggle */
+        .input-password { position: relative; }
+        .input-password .form-control { padding-right: 46px; }
+
+        .toggle-password {
+            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            background: none; border: none;
+            color: var(--muted); font-size: 17px; padding: 0; cursor: pointer; line-height: 1;
+        }
+
+        /* strength bars */
+        .password-strength { margin-top: 8px; display: flex; gap: 4px; }
+
+        .strength-bar {
+            height: 4px; flex: 1; border-radius: 2px;
+            background: #e5e7eb; transition: .3s ease;
+        }
+
+        .strength-bar.weak   { background: #ef4444; }
+        .strength-bar.fair   { background: #f59e0b; }
+        .strength-bar.strong { background: #22c55e; }
+
+        .strength-label { font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+        /* ── AVATAR UPLOAD ── */
+        .avatar-upload-area {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 14px;
+            padding: 22px 16px;
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            background: #fafbff;
+            transition: border-color .2s;
+            cursor: pointer;
+        }
+
+        .avatar-upload-area:hover { border-color: var(--primary); }
+
+        .avatar-upload-area.has-image { border-style: solid; border-color: var(--primary); }
+
+        .reg-avatar-preview {
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,.12);
+            background: var(--primary-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; color: var(--primary);
+        }
+
+        .reg-avatar-preview img {
+            width: 100%; height: 100%; object-fit: cover; display: none;
+        }
+
+        .avatar-upload-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 18px;
+            background: var(--primary); color: #fff;
+            border-radius: 7px; font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: background .2s;
+        }
+
+        .avatar-upload-label:hover { background: var(--primary-dark); }
+
+        .avatar-upload-hint {
+            font-size: 12px; color: var(--muted); text-align: center; margin: 0;
+        }
+
+        .avatar-file-name {
+            font-size: 12px; color: var(--primary); font-weight: 600;
+            display: none;
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-size: 11px; font-weight: 700; color: #9ca3af;
+            letter-spacing: .05em; text-transform: uppercase;
+            margin: 20px 0 12px;
+        }
+
+        /* ── SUBMIT BTN ── */
+        .register-btn {
+            width: 100%; height: 48px;
+            background: var(--primary); color: #fff;
+            border: none; border-radius: 8px;
+            font-size: 15px; font-weight: 600;
+            transition: .2s ease; margin-top: 6px;
+        }
+
+        .register-btn:hover  { background: var(--primary-dark); transform: translateY(-1px); }
+        .register-btn:active { transform: translateY(0); }
+
+        /* ── SIGN IN LINK ── */
+        .signin-link { text-align: center; margin-top: 22px; font-size: 14px; color: var(--muted); }
+        .signin-link a { color: var(--primary); font-weight: 600; text-decoration: none; }
+        .signin-link a:hover { text-decoration: underline; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 900px) {
+            .brand-panel { display: none; }
+            .form-panel  { width: 100%; padding: 40px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-wrapper">
+
+    <!-- ===== BRAND PANEL ===== -->
+    <div class="brand-panel">
+
+        <div class="brand-logo">
+            <div class="brand-logo-icon"><i class="bi bi-piggy-bank-fill"></i></div>
+            <div>
+                <h1>AJO Savings</h1>
+                <p>Build a Better Tomorrow</p>
+            </div>
+        </div>
+
+        <div class="brand-tagline">
+            <h2>Join your savings group today</h2>
+            <p>Create your account in minutes and start tracking your AJO contributions and payments right away.</p>
+        </div>
+
+        <div class="brand-steps">
+
+            <div class="brand-step">
+                <div class="step-number">1</div>
+                <div>
+                    <p>Create your account</p>
+                    <small>Fill in your name, email, and a secure password</small>
+                </div>
+            </div>
+
+            <div class="brand-step">
+                <div class="step-number">2</div>
+                <div>
+                    <p>Upload a profile photo</p>
+                    <small>JPG, PNG or WEBP — max 2 MB</small>
+                </div>
+            </div>
+
+            <div class="brand-step">
+                <div class="step-number">3</div>
+                <div>
+                    <p>Start managing your savings</p>
+                    <small>Schedule payments and track your progress</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===== FORM PANEL ===== -->
+    <div class="form-panel">
+
+        <div class="form-panel-header">
+            <h2>Create your account</h2>
+            <p>It only takes a minute to get started</p>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert d-none mb-3" id="registerAlert" role="alert">
+            <i class="bi flex-shrink-0" id="registerAlertIcon"></i>
+            <span id="registerAlertMessage"></span>
+        </div>
+
+        <!-- Form -->
+        <form class="register-form" id="registerForm" novalidate>
+
+            <!-- Profile Photo -->
+            <p class="section-label" style="margin-top:0;">Profile Photo <span style="font-weight:400;text-transform:none;font-size:11px;color:#9ca3af;">(optional)</span></p>
+
+            <div class="avatar-upload-area" id="avatarUploadArea">
+
+                <div class="reg-avatar-preview" id="regAvatarPreview">
+                    <i class="bi bi-person"></i>
+                    <img id="regAvatarImg" src="" alt="Preview">
+                </div>
+
+                <label class="avatar-upload-label" for="regAvatarInput">
+                    <i class="bi bi-upload"></i> Choose Photo
+                </label>
+
+                <input type="file" id="regAvatarInput" accept=".jpg,.jpeg,.png,.webp" hidden>
+
+                <p class="avatar-upload-hint">JPG, PNG or WEBP &nbsp;·&nbsp; Max 2 MB</p>
+
+                <span class="avatar-file-name" id="regAvatarFileName"></span>
+
+            </div>
+
+            <!-- Personal Info -->
+            <p class="section-label">Personal Information</p>
+
+            <div class="mb-3">
+                <label class="form-label" for="regFullName">Full Name</label>
+                <input type="text" class="form-control" id="regFullName"
+                    placeholder="e.g. Akin John Ojo" autocomplete="name" required>
+            </div>
+
+            <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                    <label class="form-label" for="regEmail">Email Address</label>
+                    <input type="email" class="form-control" id="regEmail"
+                        placeholder="you@example.com" autocomplete="email" required>
+                </div>
+                <div class="col-sm-6">
+                    <label class="form-label" for="regPhone">Phone Number</label>
+                    <input type="tel" class="form-control" id="regPhone"
+                        placeholder="e.g. 08012345678" autocomplete="tel" required>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <p class="section-label">Account Security</p>
+
+            <div class="mb-3">
+                <label class="form-label" for="regPassword">Password</label>
+                <div class="input-password">
+                    <input type="password" class="form-control" id="regPassword"
+                        placeholder="At least 8 characters" autocomplete="new-password" required>
+                    <button type="button" class="toggle-password" id="toggleRegPassword"
+                        aria-label="Toggle password visibility">
+                        <i class="bi bi-eye" id="toggleRegPasswordIcon"></i>
+                    </button>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-bar" id="bar1"></div>
+                    <div class="strength-bar" id="bar2"></div>
+                    <div class="strength-bar" id="bar3"></div>
+                    <div class="strength-bar" id="bar4"></div>
+                </div>
+                <div class="strength-label" id="strengthLabel"></div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label" for="regConfirmPassword">Confirm Password</label>
+                <div class="input-password">
+                    <input type="password" class="form-control" id="regConfirmPassword"
+                        placeholder="Re-enter your password" autocomplete="new-password" required>
+                    <button type="button" class="toggle-password" id="toggleRegConfirm"
+                        aria-label="Toggle confirm password visibility">
+                        <i class="bi bi-eye" id="toggleRegConfirmIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Terms -->
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                <label class="form-check-label" for="agreeTerms" style="font-size:13px;color:#374151;">
+                    I agree to the
+                    <a href="#" style="color:var(--primary);">Terms of Service</a> and
+                    <a href="#" style="color:var(--primary);">Privacy Policy</a>
+                </label>
+            </div>
+
+            <button type="submit" class="register-btn">
+                <i class="bi bi-person-plus-fill me-2"></i>
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="signin-link">
+            Already have an account? <a href="./login.html">Sign in</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    // =========================================
+    // ELEMENTS
+    // =========================================
+
+    const registerForm       = document.getElementById("registerForm");
+    const regFullName        = document.getElementById("regFullName");
+    const regEmail           = document.getElementById("regEmail");
+    const regPhone           = document.getElementById("regPhone");
+    const regPassword        = document.getElementById("regPassword");
+    const regConfirmPassword = document.getElementById("regConfirmPassword");
+    const registerAlert      = document.getElementById("registerAlert");
+    const registerAlertMsg   = document.getElementById("registerAlertMessage");
+
+    // avatar elements
+    const regAvatarInput    = document.getElementById("regAvatarInput");
+    const regAvatarImg      = document.getElementById("regAvatarImg");
+    const regAvatarPreview  = document.getElementById("regAvatarPreview");
+    const avatarUploadArea  = document.getElementById("avatarUploadArea");
+    const regAvatarFileName = document.getElementById("regAvatarFileName");
+
+    // stored base64 avatar string
+    let avatarBase64 = "";
+
+    // =========================================
+    // AVATAR UPLOAD
+    // =========================================
+
+    const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"];
+    const MAX_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
+
+    regAvatarInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        // type check
+        if (!ALLOWED_TYPES.includes(file.type)) {
+            showAlert("Only JPG, PNG, or WEBP images are allowed.", "error");
+            this.value = "";
+            return;
+        }
+
+        // size check
+        if (file.size > MAX_SIZE_BYTES) {
+            showAlert("Image must be 2 MB or smaller.", "error");
+            this.value = "";
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            avatarBase64 = e.target.result;
+
+            // show preview
+            regAvatarImg.src = avatarBase64;
+            regAvatarImg.style.display = "block";
+            regAvatarPreview.querySelector("i").style.display = "none";
+
+            avatarUploadArea.classList.add("has-image");
+            regAvatarFileName.textContent = file.name;
+            regAvatarFileName.style.display = "block";
+
+            hideAlert();
+        };
+        reader.readAsDataURL(file);
+    });
+
+    // clicking the upload area also opens the file picker
+    avatarUploadArea.addEventListener("click", function (e) {
+        if (e.target !== regAvatarInput && !e.target.closest("label")) {
+            regAvatarInput.click();
+        }
+    });
+
+    // =========================================
+    // PASSWORD TOGGLE
+    // =========================================
+
+    function setupToggle(btnId, inputEl, iconId) {
+        document.getElementById(btnId).addEventListener("click", function () {
+            const show = inputEl.type === "password";
+            inputEl.type = show ? "text" : "password";
+            document.getElementById(iconId).className = show ? "bi bi-eye-slash" : "bi bi-eye";
+        });
+    }
+
+    setupToggle("toggleRegPassword", regPassword, "toggleRegPasswordIcon");
+    setupToggle("toggleRegConfirm",  regConfirmPassword, "toggleRegConfirmIcon");
+
+    // =========================================
+    // PASSWORD STRENGTH
+    // =========================================
+
+    const bars = [
+        document.getElementById("bar1"),
+        document.getElementById("bar2"),
+        document.getElementById("bar3"),
+        document.getElementById("bar4")
+    ];
+    const strengthLabel = document.getElementById("strengthLabel");
+
+    function getStrength(pw) {
+        let score = 0;
+        if (pw.length >= 8)           score++;
+        if (/[A-Z]/.test(pw))         score++;
+        if (/[0-9]/.test(pw))         score++;
+        if (/[^A-Za-z0-9]/.test(pw))  score++;
+        return score;
+    }
+
+    regPassword.addEventListener("input", function () {
+        const score  = getStrength(this.value);
+        const levels = ["", "weak", "fair", "strong", "strong"];
+        const labels = ["", "Weak", "Fair", "Strong", "Very strong"];
+
+        bars.forEach(function (bar, i) {
+            bar.className = "strength-bar" + (i < score ? " " + levels[score] : "");
+        });
+        strengthLabel.textContent = this.value ? labels[score] : "";
+    });
+
+    // =========================================
+    // ALERT HELPERS
+    // =========================================
+
+    function showAlert(message, type) {
+        const map = {
+            success: { cls: "alert-success", icon: "bi-check-circle-fill" },
+            error:   { cls: "alert-danger",  icon: "bi-exclamation-circle-fill" }
+        };
+        const cfg = map[type] || map.error;
+
+        registerAlert.className = "alert " + cfg.cls + " d-flex align-items-center gap-2 mb-3";
+        document.getElementById("registerAlertIcon").className = "bi " + cfg.icon + " flex-shrink-0";
+        registerAlertMsg.textContent = message;
+        registerAlert.classList.remove("d-none");
+    }
+
+    function hideAlert() {
+        registerAlert.className = "alert d-none mb-3";
+    }
+
+    // =========================================
+    // VALIDATION HELPERS
+    // =========================================
+
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function isValidPhone(phone) {
+        return /^[0-9+\s\-()\u00B7]{7,15}$/.test(phone.trim());
+    }
+
+    // =========================================
+    // ACCOUNT STORAGE HELPERS
+    // =========================================
+
+    function getAccounts() {
+        try { return JSON.parse(localStorage.getItem("accounts")) || []; } catch (e) { return []; }
+    }
+
+    // =========================================
+    // FORM SUBMIT
+    // =========================================
+
+    registerForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        hideAlert();
+
+        const name     = regFullName.value.trim();
+        const email    = regEmail.value.trim().toLowerCase();
+        const phone    = regPhone.value.trim();
+        const password = regPassword.value;
+        const confirm  = regConfirmPassword.value;
+        const agreed   = document.getElementById("agreeTerms").checked;
+
+        // --- Validation ---
+        if (!name) {
+            showAlert("Please enter your full name.", "error");
+            regFullName.focus(); return;
+        }
+
+        if (!isValidEmail(email)) {
+            showAlert("Please enter a valid email address.", "error");
+            regEmail.focus(); return;
+        }
+
+        if (!isValidPhone(phone)) {
+            showAlert("Please enter a valid phone number.", "error");
+            regPhone.focus(); return;
+        }
+
+        if (password.length < 8) {
+            showAlert("Password must be at least 8 characters.", "error");
+            regPassword.focus(); return;
+        }
+
+        if (password !== confirm) {
+            showAlert("Passwords do not match.", "error");
+            regConfirmPassword.focus(); return;
+        }
+
+        if (!agreed) {
+            showAlert("Please agree to the Terms of Service to continue.", "error");
+            return;
+        }
+
+        // --- Duplicate email check ---
+        const accounts = getAccounts();
+        const exists = accounts.find(function (a) {
+            return a.email.toLowerCase() === email;
+        });
+
+        if (exists) {
+            showAlert("An account with this email already exists. Please sign in.", "error");
+            regEmail.focus(); return;
+        }
+
+        // --- Build user object ---
+        const now = new Date();
+
+        // Member number = position in the accounts array (1-indexed), padded to 3 digits.
+        // We add 1 because this user will be pushed in a moment, making them account N+1.
+        // For simultaneous registrations on different devices the timestamp suffix in the
+        // ISO string already differentiates the records; on a single device localStorage
+        // writes are synchronous so the array length is always accurate.
+        const memberNumber = String(accounts.length + 1).padStart(3, "0");
+        const memberId     = "AJO-" + memberNumber;
+
+        const newUser = {
+            email:       email,
+            password:    password,       // kept in accounts[] for login checks
+            name:        name,
+            phone:       phone,
+            group:       "AJO Savings Group",
+            memberSince: now.toLocaleString("en-GB", { month: "long", year: "numeric" }),
+            role:        "Savings Member",
+            avatar:      avatarBase64,   // base64 string or ""
+            createdAt:   now.toISOString(),   // exact registration timestamp
+            memberId:    memberId             // e.g. "AJO-001", "AJO-002", …
+        };
+
+        // --- Save to accounts list (includes password for login) ---
+        accounts.push(newUser);
+        localStorage.setItem("accounts", JSON.stringify(accounts));
+
+        // --- Write session user (no password exposed) ---
+        const sessionUser = Object.assign({}, newUser);
+        delete sessionUser.password;
+        localStorage.setItem("user", JSON.stringify(sessionUser));
+
+        // --- Initialise fresh, empty data scoped to this user's email ---
+        // Using email-keyed storage ensures every user has their own isolated data
+        // and a new registration never inherits anything from a previous user.
+        localStorage.setItem("scheduledPayments_" + email, JSON.stringify([]));
+        localStorage.setItem("contribData_" + email, JSON.stringify({ goal: 0, history: [] }));
+
+        // --- Redirect ---
+        showAlert("Account created! Taking you to your dashboard…", "success");
+
+        setTimeout(function () {
+            window.location.href = "./dashboard/user.html";
+        }, 1200);
+    });
+
+</script>
+
+</body>
+</html>
