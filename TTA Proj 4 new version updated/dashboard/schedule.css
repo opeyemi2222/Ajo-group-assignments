@@ -1,0 +1,482 @@
+/* =================================
+   GENERAL
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f5f7fb;
+
+    color: #1e293b;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.schedule-page {
+    min-height: 100vh;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.schedule-header {
+    height: 75px;
+
+    padding: 0 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+.back-button {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: #0b2d89;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.back-button:hover {
+    color: #08236b;
+}
+
+
+.schedule-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #0b2d89;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+}
+
+.schedule-logo h4 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.schedule-logo span {
+    font-size: 11px;
+
+    color: #777;
+}
+
+
+/* =================================
+   MAIN
+================================= */
+
+.schedule-main {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 50px 20px;
+}
+
+
+/* =================================
+   HEADING
+================================= */
+
+.schedule-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+.heading-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e8edff;
+
+    color: #0b2d89;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+}
+
+.schedule-heading h1 {
+    margin: 0 0 5px;
+
+    font-size: 30px;
+}
+
+.schedule-heading p {
+    margin: 0;
+
+    color: #64748b;
+}
+
+
+/* =================================
+   LAYOUT
+================================= */
+
+.schedule-layout {
+    display: grid;
+
+    grid-template-columns: 1.6fr 1fr;
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+/* =================================
+   FORM CARD
+================================= */
+
+.schedule-card {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+
+.form-section {
+    margin-bottom: 22px;
+}
+
+.form-section label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+}
+
+.form-section label span {
+    color: #94a3b8;
+
+    font-weight: normal;
+
+    margin-left: 5px;
+}
+
+
+.form-control,
+.form-select {
+    min-height: 46px;
+
+    border-color: #dce3ed;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #0b2d89;
+
+    box-shadow: 0 0 0 3px rgba(11, 45, 137, 0.1);
+}
+
+
+.input-group-text {
+    background: #f8fafc;
+
+    border-color: #dce3ed;
+
+    font-weight: 600;
+}
+
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+
+    left: 14px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #64748b;
+
+    z-index: 2;
+}
+
+.input-icon input {
+    padding-left: 42px;
+}
+
+
+.confirmation-check {
+    margin: 25px 0;
+}
+
+.confirmation-check label {
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+
+/* =================================
+   SUBMIT BUTTON
+================================= */
+
+.schedule-submit-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #0b2d89;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: 0.3s ease;
+}
+
+.schedule-submit-btn:hover {
+    background: #08236b;
+}
+
+
+/* =================================
+   SUMMARY
+================================= */
+
+.summary-card {
+    padding: 25px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+.summary-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.summary-header i {
+    color: #0b2d89;
+
+    font-size: 22px;
+}
+
+.summary-header h4 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+
+.summary-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.summary-item span {
+    color: #64748b;
+}
+
+.summary-item strong {
+    text-align: right;
+}
+
+
+/* =================================
+   SECURITY
+================================= */
+
+.security-card {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    display: flex;
+
+    gap: 15px;
+
+    background: #eef5ff;
+
+    border-radius: 12px;
+
+    color: #0b2d89;
+}
+
+.security-card i {
+    font-size: 25px;
+}
+
+.security-card strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.security-card p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+    .schedule-header {
+        padding: 0 20px;
+    }
+
+    .schedule-logo {
+        display: none;
+    }
+
+    .schedule-main {
+        padding: 30px 15px;
+    }
+
+    .schedule-heading h1 {
+        font-size: 24px;
+    }
+
+    .schedule-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-card {
+        padding: 20px;
+    }
+
+}
+
+/* =================================
+   CONFIRM PAYMENT BUTTON
+================================= */
+
+.confirm-payment-btn {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #198754;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.confirm-payment-btn:hover {
+    background: #146c43;
+}
+
+.confirm-payment-btn:disabled {
+    background: #94a3b8;
+
+    cursor: not-allowed;
+}
