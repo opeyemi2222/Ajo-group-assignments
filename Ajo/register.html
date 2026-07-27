@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | AJO Savings Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/auth.css">
+    <script src="./js/auth.js" defer></script>
+</head>
+<body>
+    <div class="container-fluid auth-page">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-xl-9 col-lg-10">
+                <div class="row auth-card">
+                    <div class="col-lg-5 welcome-side">
+                        <div>
+                            <h1>AJO SAVE</h1>
+                            <p>Start managing your savings and contributions with confidence.</p>
+                            <hr>
+                            <div class="feature"><i class="fa-solid fa-users"></i>Member Management</div>
+                            <div class="feature"><i class="fa-solid fa-piggy-bank"></i>Savings Tracking</div>
+                            <div class="feature"><i class="fa-solid fa-chart-column"></i>Reports &amp; Analytics</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 register-side">
+                        <h3 class="mb-4">Create your account</h3>
+                        <form id="registerForm">
+                            <input type="text" class="form-control mb-3" placeholder="First Name" required>
+                            <input type="text" class="form-control mb-3" placeholder="Last Name" required>
+                            <input type="email" class="form-control mb-3" placeholder="Email" required>
+                            <input type="text" class="form-control mb-3" placeholder="Phone Number" required>
+                            <div class="password-box mb-3">
+                                <input type="password" class="form-control" id="registerPassword" placeholder="Password" required>
+                                <i class="fa-solid fa-eye togglePassword"></i>
+                            </div>
+                            <input type="password" class="form-control mb-4" id="confirmPassword" placeholder="Confirm Password" required>
+                            <button type="submit" class="btn btn-success w-100">Create Account</button>
+                            <p class="auth-switch text-center mt-4 mb-0">Already have an account? <a href="index.html">Log in</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

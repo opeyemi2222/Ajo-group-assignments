@@ -1,0 +1,423 @@
+/* ==========================================
+   GOOGLE FONT & RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(-45deg,#2563eb,#7c3aed,#ec4899,#f97316);
+    background-size:400% 400%;
+    animation:gradientBG 15s ease infinite;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* ==========================================
+   ANIMATED BACKGROUND
+========================================== */
+
+@keyframes gradientBG{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(40px);
+    opacity:.35;
+    animation:float 18s infinite ease-in-out;
+}
+
+.blob1{
+    width:250px;
+    height:250px;
+    background:#38bdf8;
+    top:5%;
+    left:10%;
+}
+
+.blob2{
+    width:300px;
+    height:300px;
+    background:#9333ea;
+    right:10%;
+    top:20%;
+    animation-delay:4s;
+}
+
+.blob3{
+    width:220px;
+    height:220px;
+    background:#f97316;
+    bottom:8%;
+    left:20%;
+    animation-delay:8s;
+}
+
+.blob4{
+    width:260px;
+    height:260px;
+    background:#10b981;
+    right:15%;
+    bottom:10%;
+    animation-delay:6s;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0) translateX(0);
+    }
+
+    50%{
+        transform:translateY(-40px) translateX(25px);
+    }
+
+}
+
+/* ==========================================
+   LEFT PANEL
+========================================== */
+
+.left-panel{
+    color:#fff;
+    padding:60px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    background:#fff;
+    color:#2563eb;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.brand h1{
+    font-size:55px;
+    font-weight:800;
+}
+
+.brand .lead{
+    font-size:25px;
+    font-weight:600;
+    margin:20px 0;
+}
+
+.brand p{
+    line-height:1.8;
+}
+
+/* ==========================================
+   FEATURE CARDS
+========================================== */
+
+.feature-grid{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.feature-card{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:20px;
+    padding:25px;
+    transition:.4s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,.18);
+}
+
+.feature-card i{
+    font-size:30px;
+    margin-bottom:15px;
+    color:#fff;
+}
+
+.feature-card h5{
+    font-weight:700;
+}
+
+.feature-card p{
+    margin:0;
+    color:#f1f5f9;
+}
+
+/* ==========================================
+   AUTH CARD
+========================================== */
+
+.auth-card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;
+    padding:40px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+/* ==========================================
+   TABS
+========================================== */
+
+.tabs{
+    display:flex;
+    background:#ffffff22;
+    border-radius:50px;
+    padding:5px;
+    margin-bottom:35px;
+}
+
+.tab-btn{
+    flex:1;
+    border:none;
+    padding:14px;
+    border-radius:50px;
+    background:transparent;
+    color:#fff;
+    font-weight:600;
+    transition:.4s;
+}
+
+.tab-btn.active{
+    background:#fff;
+    color:#2563eb;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.auth-card h3{
+    color:#fff;
+    font-weight:700;
+}
+
+.auth-card p{
+    color:#f1f5f9;
+}
+
+label{
+    color:#fff;
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+.input-group-text{
+    background:#fff;
+    border:none;
+}
+
+.form-control{
+    border:none;
+    height:55px;
+    box-shadow:none;
+}
+
+.form-control:focus{
+    box-shadow:none;
+}
+
+.form-check-label{
+    color:#fff;
+}
+
+a{
+    color:#fff;
+    text-decoration:none;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-login{
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    color:#fff;
+    border:none;
+    height:55px;
+    border-radius:15px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn-login:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(37,99,235,.4);
+    color:#fff;
+}
+
+.btn-register{
+    background:linear-gradient(90deg,#10b981,#22c55e);
+    color:#fff;
+    border:none;
+    height:55px;
+    border-radius:15px;
+    font-weight:700;
+}
+
+.btn-register:hover{
+    transform:translateY(-4px);
+    color:#fff;
+}
+
+/* ==========================================
+   SOCIAL BUTTONS
+========================================== */
+
+.social-buttons{
+    display:grid;
+    gap:15px;
+}
+
+.google-btn,
+.facebook-btn{
+    border:none;
+    border-radius:12px;
+    height:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.google-btn{
+    background:#fff;
+    color:#ea4335;
+}
+
+.facebook-btn{
+    background:#1877f2;
+    color:#fff;
+}
+
+.google-btn:hover,
+.facebook-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.divider{
+    text-align:center;
+    margin:25px 0;
+    position:relative;
+}
+
+.divider span{
+    color:#fff;
+    padding:0 20px;
+    background:transparent;
+}
+
+.divider::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:rgba(255,255,255,.25);
+    left:0;
+    top:50%;
+    z-index:-1;
+}
+
+/* ==========================================
+   PASSWORD EYE
+========================================== */
+
+.togglePassword{
+    cursor:pointer;
+}
+
+.auth-message{
+    margin:0 0 16px;
+    padding:10px 12px;
+    border-radius:8px;
+    background:rgba(254,226,226,.95);
+    color:#b91c1c;
+    font-size:14px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:991px){
+
+    .left-panel{
+        text-align:center;
+        padding:40px 20px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .brand h1{
+        font-size:40px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .left-panel{
+        display:none;
+    }
+
+    .auth-card{
+        margin:20px;
+        padding:25px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .auth-card{
+        padding:20px;
+    }
+
+    .tab-btn{
+        font-size:14px;
+    }
+
+    .brand h1{
+        font-size:32px;
+    }
+
+}

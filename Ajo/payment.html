@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments | Ajo Savings Tracker</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/payment.css">
+    <script src="./js/dashboard.js" defer></script>
+    <script src="./js/payment.js" defer></script>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-piggy-bank"></i>
+            <h2>AJO SAVE</h2>
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="member.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Members</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="contributions.html">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <span>Contributions</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="payment.html">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Payments</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="reports.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main">
+
+        <!-- Navbar -->
+
+        <header class="navbar">
+
+            <div class="left-nav">
+
+                <button id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <h3>Payments</h3>
+
+            </div>
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-search"></i>
+
+                <input
+                    type="text"
+                    id="searchPayment"
+                    placeholder="Search payment...">
+
+            </div>
+
+            <div class="right-nav">
+
+                <button>
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <img src="https://i.pravatar.cc/150?img=12" alt="Admin">
+
+            </div>
+
+        </header>
+
+        <!-- Content -->
+
+        <section class="content">
+
+            <div class="page-title">
+
+                <div>
+
+                    <h2>Payment Management</h2>
+
+                    <p>Manage payouts and payment records.</p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addPaymentModal">
+
+                    <i class="fa-solid fa-money-check-dollar"></i>
+
+                    Make Payment
+
+                </button>
+
+            </div>
+
+            <!-- Summary Cards -->
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div>
+
+                        <small>Total Paid</small>
+
+                        <h3>₦4,250,000</h3>
+
+                    </div>
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                </div>
+
+                <div class="card">
+
+                    <div>
+
+                        <small>Today's Payments</small>
+
+                        <h3>₦120,000</h3>
+
+                    </div>
+
+                    <i class="fa-solid fa-calendar-day"></i>
+
+                </div>
+
+                <div class="card">
+
+                    <div>
+
+                        <small>Pending Payments</small>
+
+                        <h3>₦350,000</h3>
+
+                    </div>
+
+                    <i class="fa-solid fa-clock"></i>
+
+                </div>
+
+            </div>
+
+            <!-- Filters -->
+
+            <div class="filter-area">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search member">
+
+                <input
+                    type="date"
+                    class="form-control">
+
+                <select class="form-select">
+
+                    <option>All Status</option>
+                    <option>Completed</option>
+                    <option>Pending</option>
+
+                </select>
+
+            </div>
+
+            <!-- Payment Table -->
+
+            <div class="table-card">
+
+                <table class="table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>Member</th>
+
+                            <th>Amount</th>
+
+                            <th>Date</th>
+
+                            <th>Method</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="paymentTable">
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>John David</td>
+
+                            <td>₦25,000</td>
+
+                            <td>20 Jul 2026</td>
+
+                            <td>Bank Transfer</td>
+
+                            <td>
+                                <span class="badge bg-success">
+                                    Completed
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+
+                                <button class="btn btn-warning btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>Grace James</td>
+
+                            <td>₦18,000</td>
+
+                            <td>19 Jul 2026</td>
+
+                            <td>Cash</td>
+
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Pending
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+
+                                <button class="btn btn-warning btn-sm">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Pagination -->
+
+            <nav class="mt-4">
+
+                <ul class="pagination justify-content-end">
+
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script src="assets/js/payments.js"></script>
+
+</body>
+</html>

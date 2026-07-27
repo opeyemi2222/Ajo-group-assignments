@@ -1,0 +1,300 @@
+/* ==========================================
+   GOOGLE FONT & RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ==========================================
+   PAGE
+========================================== */
+
+.auth-page{
+    padding:40px 15px;
+}
+
+.auth-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,.2);
+}
+
+/* ==========================================
+   LEFT PANEL
+========================================== */
+
+.welcome-side{
+    background:linear-gradient(160deg,#2563eb,#1d4ed8,#0f172a);
+    color:#fff;
+    padding:60px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.welcome-side h1{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.welcome-side p{
+    line-height:1.8;
+    color:#dbeafe;
+    margin-bottom:25px;
+}
+
+.welcome-side hr{
+    border-color:rgba(255,255,255,.2);
+    margin:25px 0;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+    font-size:16px;
+}
+
+.feature i{
+    width:45px;
+    height:45px;
+    background:#fff;
+    color:#2563eb;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:18px;
+}
+
+/* ==========================================
+   LOGIN & REGISTER
+========================================== */
+
+.login-side,
+.register-side{
+    padding:45px 35px;
+}
+
+.login-side{
+    border-right:1px solid #e5e7eb;
+}
+
+.login-side h3,
+.register-side h3{
+    font-weight:700;
+    color:#1e293b;
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+label{
+    font-weight:600;
+    color:#475569;
+    margin-bottom:8px;
+}
+
+.form-control{
+    height:52px;
+    border-radius:12px;
+    border:1px solid #d1d5db;
+    box-shadow:none;
+    transition:.3s;
+}
+
+.form-control:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 .15rem rgba(37,99,235,.2);
+}
+
+/* ==========================================
+   PASSWORD
+========================================== */
+
+.password-box{
+    position:relative;
+}
+
+.password-box i{
+    position:absolute;
+    top:50%;
+    right:18px;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#64748b;
+    transition:.3s;
+}
+
+.password-box i:hover{
+    color:#2563eb;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn{
+    height:52px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+    border:none;
+}
+
+.btn-primary{
+    background:#2563eb;
+}
+
+.btn-success{
+    background:#16a34a;
+}
+
+.btn-primary:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
+
+.btn-success:hover{
+    background:#15803d;
+    transform:translateY(-3px);
+}
+
+/* ==========================================
+   CHECKBOX
+========================================== */
+
+.form-check-input{
+    cursor:pointer;
+}
+
+.form-check-label{
+    cursor:pointer;
+    color:#475569;
+}
+
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+
+.auth-card{
+    animation:fadeIn .7s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================
+   INPUT ICON EFFECT
+========================================== */
+
+.form-control:hover{
+    border-color:#60a5fa;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:991px){
+
+    .welcome-side{
+        padding:40px 30px;
+        text-align:center;
+    }
+
+    .feature{
+        justify-content:center;
+    }
+
+    .login-side{
+        border-right:none;
+        border-bottom:1px solid #e5e7eb;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .auth-page{
+        padding:20px 10px;
+    }
+
+    .welcome-side,
+    .login-side,
+    .register-side{
+        padding:30px 20px;
+    }
+
+    .welcome-side h1{
+        font-size:32px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .welcome-side{
+        display:none;
+    }
+
+    .login-side,
+    .register-side{
+        padding:25px 20px;
+    }
+
+    .login-side h3,
+    .register-side h3{
+        text-align:center;
+    }
+
+    .btn{
+        height:48px;
+    }
+
+    .form-control{
+        height:48px;
+    }
+
+}
+
+.auth-switch{
+    color:#64748b;
+    font-size:14px;
+}
+
+.auth-switch a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.auth-switch a:hover{
+    text-decoration:underline;
+}

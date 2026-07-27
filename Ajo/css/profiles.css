@@ -1,0 +1,364 @@
+/* ==========================================
+   PROFILE PAGE
+========================================== */
+
+.content{
+    padding:30px;
+    background:#f5f7fb;
+    min-height:100vh;
+}
+
+/* ==========================================
+   PAGE TITLE
+========================================== */
+
+.page-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.page-title h2{
+    font-size:28px;
+    font-weight:700;
+    color:#1e293b;
+    margin-bottom:5px;
+}
+
+.page-title p{
+    color:#64748b;
+    margin:0;
+}
+
+.page-title .btn{
+    padding:12px 24px;
+    border-radius:10px;
+    font-weight:500;
+}
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.profile-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    margin-bottom:25px;
+}
+
+.profile-image{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #2563eb;
+    margin-bottom:20px;
+}
+
+.profile-card h3{
+    margin-bottom:5px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.profile-card p{
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.profile-info{
+    text-align:left;
+}
+
+.profile-info div{
+    margin-bottom:18px;
+}
+
+.profile-info h6{
+    margin-bottom:5px;
+    color:#475569;
+    font-weight:600;
+}
+
+.profile-info span{
+    color:#64748b;
+}
+
+/* ==========================================
+   PROFILE DETAILS
+========================================== */
+
+.profile-details{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.profile-details h4{
+    margin-bottom:20px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.form-label{
+    font-weight:600;
+    color:#334155;
+}
+
+.form-control,
+.form-select{
+    height:48px;
+    border-radius:10px;
+    border:1px solid #dbe3ec;
+    box-shadow:none;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#2563eb;
+    box-shadow:none;
+}
+
+textarea.form-control{
+    height:auto;
+    resize:none;
+}
+
+/* ==========================================
+   ACCOUNT STATISTICS
+========================================== */
+
+.stats-card{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    margin-top:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.stats-card h5{
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.stat-box{
+    background:#f8fafc;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-5px);
+}
+
+.stat-box i{
+    font-size:32px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.stat-box h3{
+    margin:0;
+    color:#2563eb;
+    font-weight:700;
+}
+
+.stat-box p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* ==========================================
+   SECURITY CARD
+========================================== */
+
+.security-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    margin-top:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.security-card h4{
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.security-card .btn{
+    border-radius:10px;
+}
+
+/* ==========================================
+   ACTIVITY TIMELINE
+========================================== */
+
+.activity-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    margin-top:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.activity-card h4{
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.timeline{
+    position:relative;
+}
+
+.timeline-item{
+    display:flex;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.timeline-icon{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#2563eb;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.timeline-content{
+    flex:1;
+}
+
+.timeline-content h6{
+    margin-bottom:5px;
+    font-weight:600;
+}
+
+.timeline-content p{
+    margin:0;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge{
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-success,
+.btn-primary{
+    border:none;
+    transition:.3s;
+}
+
+.btn-success:hover,
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+.page-title{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.profile-card{
+    margin-bottom:30px;
+}
+
+}
+
+@media(max-width:768px){
+
+.content{
+    padding:20px;
+}
+
+.profile-details,
+.profile-card,
+.stats-card,
+.security-card,
+.activity-card{
+    padding:20px;
+}
+
+.profile-image{
+    width:120px;
+    height:120px;
+}
+
+.page-title h2{
+    font-size:22px;
+}
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:576px){
+
+.content{
+    padding:15px;
+}
+
+.page-title h2{
+    font-size:20px;
+}
+
+.page-title p{
+    font-size:14px;
+}
+
+.profile-image{
+    width:100px;
+    height:100px;
+}
+
+.profile-card,
+.profile-details{
+    padding:18px;
+}
+
+.timeline-item{
+    flex-direction:column;
+}
+
+.timeline-icon{
+    margin-bottom:10px;
+}
+
+}

@@ -1,0 +1,419 @@
+/* ===========================
+   AJO SAVE REPORT STYLE
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#333;
+}
+
+
+/* Navbar */
+
+.navbar{
+    padding:15px 0;
+    background:linear-gradient(135deg,#0062ff,#0040c9)!important;
+}
+
+.navbar-brand{
+    font-size:24px;
+    letter-spacing:1px;
+}
+
+.nav-link{
+    font-weight:500;
+    margin-left:20px;
+    transition:.3s;
+}
+
+.nav-link:hover,
+.nav-link.active{
+    color:#ffd700!important;
+}
+
+
+/* Hero Section */
+
+.hero{
+    background:
+    linear-gradient(
+        rgba(0,98,255,.85),
+        rgba(0,64,201,.9)
+    ),
+    url("../images/save-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    padding:80px 0;
+    color:white;
+    text-align:center;
+}
+
+
+.hero h1{
+
+    font-size:45px;
+    font-weight:700;
+    animation:slideDown 1s ease;
+
+}
+
+
+.hero p{
+
+    font-size:18px;
+    opacity:.9;
+    margin-top:15px;
+
+}
+
+
+/* Cards */
+
+.report-card{
+
+    background:white;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+
+}
+
+
+.report-card::before{
+
+    content:"";
+    position:absolute;
+    width:100%;
+    height:5px;
+    background:#0062ff;
+    top:0;
+    left:0;
+
+}
+
+
+.report-card:hover{
+
+    transform:translateY(-10px);
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
+
+}
+
+
+.report-card i{
+
+    font-size:40px;
+    color:#0062ff;
+    margin-bottom:20px;
+
+}
+
+
+.report-card h2{
+
+    font-size:32px;
+    font-weight:700;
+    color:#222;
+
+}
+
+
+.report-card p{
+
+    color:#777;
+    font-weight:500;
+
+}
+
+
+/* Different Colors */
+
+.report-card.green::before{
+    background:#28a745;
+}
+
+.report-card.green i{
+    color:#28a745;
+}
+
+
+.report-card.orange::before{
+    background:#ff9800;
+}
+
+.report-card.orange i{
+    color:#ff9800;
+}
+
+
+
+.report-card.purple::before{
+    background:#6f42c1;
+}
+
+.report-card.purple i{
+    color:#6f42c1;
+}
+
+
+
+/* Main Cards */
+
+.card{
+
+    border-radius:20px!important;
+    overflow:hidden;
+
+}
+
+
+.card-body{
+
+    padding:30px;
+
+}
+
+
+.card h4{
+
+    font-weight:600;
+    color:#222;
+
+}
+
+
+/* Progress Bar */
+
+.progress{
+
+    height:30px;
+    border-radius:20px;
+    background:#e9ecef;
+
+}
+
+
+.progress-bar{
+
+    font-weight:600;
+    font-size:15px;
+
+}
+
+
+
+/* Chart */
+
+canvas{
+
+    max-height:350px;
+
+}
+
+
+
+/* Table */
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+
+.table thead{
+
+    background:#0062ff;
+    color:white;
+
+}
+
+
+.table thead th{
+
+    padding:15px;
+
+}
+
+
+.table tbody tr{
+
+    transition:.3s;
+
+}
+
+
+.table tbody tr:hover{
+
+    background:#eef5ff;
+    transform:scale(1.01);
+
+}
+
+
+/* Badge */
+
+.badge{
+
+    padding:8px 15px;
+    border-radius:20px;
+
+}
+
+
+
+/* Award */
+
+.award{
+
+    font-size:80px;
+    color:#ffc107;
+
+    animation:bounce 2s infinite;
+
+}
+
+
+.card-body h3{
+
+    font-weight:700;
+
+}
+
+
+
+/* Buttons */
+
+
+.btn{
+
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+
+.btn:hover{
+
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+}
+
+
+/* Footer */
+
+
+footer{
+
+    background:#001f5b;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+
+}
+
+
+footer p{
+
+    margin:0;
+}
+
+
+/* Animations */
+
+
+@keyframes slideDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-50px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+
+    font-size:32px;
+
+}
+
+
+.report-card h2{
+
+    font-size:25px;
+
+}
+
+
+.card-body{
+
+    padding:20px;
+
+}
+
+
+.nav-link{
+
+    margin-left:0;
+
+}
+
+
+}
+@media print{
+
+.navbar,
+.btn,
+footer{
+    display:none!important;
+}
+
+.hero{
+    padding:30px;
+}
+
+}
